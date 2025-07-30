@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NeuronForge AI - Dashboard</title>
+  <title>Admin AI Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,41 +17,23 @@
     </nav>
     <select id="toggleLang"></select>
   </header>
-
   <main>
-    <section>
-      <h2 data-i18n="dashboard_reports"></h2>
-      <p><span data-i18n="dashboard_visitors"></span>: <span id="visitors-count">0</span></p>
-      <p><span data-i18n="dashboard_subscribers"></span>: <span id="subscribers-count">0</span></p>
-      <p><span data-i18n="dashboard_sales"></span>: <span id="sales-count">0</span></p>
-      <p><span data-i18n="dashboard_revenue"></span>: <span id="revenue-amount">0 $</span></p>
+    <section id="login-section">
+      <h2>Admin Login</h2>
+      <input type="password" id="admin-pass" placeholder="Enter Admin Password" class="input-neu"/>
+      <button class="button" onclick="adminLogin()">Login</button>
     </section>
-    <section>
-      <h2 data-i18n="dashboard_quick_commands"></h2>
-      <button onclick="generateContent()" data-i18n="dashboard_btn_content"></button>
-      <button onclick="generateBook()" data-i18n="dashboard_btn_book"></button>
-      <button onclick="generatePosts()" data-i18n="dashboard_btn_posts"></button>
-      <button onclick="generateVideo()" data-i18n="dashboard_btn_video"></button>
-    </section>
-    <section>
-      <h2 data-i18n="dashboard_social_accounts"></h2>
-      <button onclick="connectAccount('twitter')" data-i18n="connect_twitter"></button>
-      <button onclick="connectAccount('instagram')" data-i18n="connect_instagram"></button>
-      <button onclick="connectAccount('facebook')" data-i18n="connect_facebook"></button>
-      <div id="linked-accounts"></div>
-    </section>
-    <section>
-      <h3 data-i18n="schedule_post"></h3>
-      <input type="datetime-local" id="schedule-time" />
-      <button onclick="schedulePost()" data-i18n="btn_schedule"></button>
-    </section>
-    <section id="output">
-      <h2 data-i18n="dashboard_output"></h2>
-      <pre id="output-area" data-i18n="dashboard_output_wait"></pre>
+    <section id="admin-ai-section" style="display:none;">
+      <h2>AI Site Control Panel</h2>
+      <textarea id="ai-command" rows="3" placeholder="اكتب أمر للذكاء الاصطناعي للتعديل أو التطوير..." class="input-neu"></textarea>
+      <button class="button" onclick="sendAICommand()">نفذ أمر الذكاء الاصطناعي</button>
+      <h3>نتيجة التنفيذ:</h3>
+      <pre id="ai-result"></pre>
     </section>
   </main>
+  <div id="notifier" style="display:none;"></div>
   <script src="script.js"></script>
-  <script src="dashboard.js"></script>
-  <script src="social.js"></script>
+  <script src="notifier.js"></script>
+  <script src="admin-ai.js"></script>
 </body>
 </html>
